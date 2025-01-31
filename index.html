@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calendario">
+        <div class="calendario-topo">
+            <h1 id="mes-ano"></h1>
+        </div>
+        <div class="botoes-navegacao">
+            <button id="btn-anterior">
+                <span class="nav-btn-prev"></span>
+                <span>Mês Anterior</span>
+            </button>
+            <span class="mes-ano"></span>
+            <button id="btn-proximo">
+                <span>Próximo Mês</span>
+                <span class="nav-btn-next"></span>
+            </button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dom</th>
+                    <th>Seg</th>
+                    <th>Ter</th>
+                    <th>Qua</th>
+                    <th>Qui</th>
+                    <th>Sex</th>
+                    <th>Sáb</th>
+                </tr>
+            </thead>
+            <tbody id="dias-corpo">
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para eventos -->
+    <div id="modal-eventos" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <h2>Evento</h2>
+            <form id="form-evento">
+                <input type="hidden" id="evento-id">
+                <div class="form-group">
+                    <label for="evento-titulo">Título:</label>
+                    <input type="text" id="evento-titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="evento-data">Data:</label>
+                    <input type="date" id="evento-data" required>
+                </div>
+                <div class="form-group">
+                    <label for="evento-horario">Horário:</label>
+                    <input type="time" id="evento-horario">
+                </div>
+                <div class="form-group">
+                    <label for="evento-descricao">Descrição:</label>
+                    <textarea id="evento-descricao"></textarea>
+                </div>
+                <div class="botoes-modal">
+                    <button type="submit" id="btn-salvar-evento">Salvar</button>
+                    <button type="button" id="btn-deletar-evento" style="display: none">Deletar</button>
+                    <button type="button" id="btn-cancelar-evento">Cancelar</button>
+                </div>
+                
+            </form>
+           <div id="eventos-do-dia">
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

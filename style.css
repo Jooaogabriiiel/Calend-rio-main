@@ -1,0 +1,255 @@
+body {
+  font-family: Gill Sans MT, sans-serif, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+  margin: 0;
+  background-image: url(fire2.gif);
+  background-position: top;
+}
+
+.calendario {
+  border: 10px solid #990000;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(255, 222, 200);
+  width: 340px;
+  position: relative;
+}
+
+.calendario-topo {
+  background-color: #990000;
+  color: rgb(255, 210, 192);
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.botoes-navegacao {
+  background-color: #990000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.botoes-navegacao button {
+  background: none;
+  border: 10px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(255, 210, 192);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn-prev::before {
+  content: "\2039";
+  font-size: 1.5em;
+  margin-right: 5px;
+}
+
+.nav-btn-next::after {
+  content: "\203A";
+  font-size: 1.5em;
+  margin-left: 5px;
+}
+
+.botoes-navegacao button span {
+  display: inline-block;
+}
+
+.botoes-navegacao button span:first-child {
+  margin-right: 5px;
+}
+
+.botoes-navegacao button span:last-child {
+  margin-left: 5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #ffebeb;
+  padding: 10px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #381c64;
+}
+
+td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #923131;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+td:hover {
+  background-color: #ffa8a8;
+}
+
+.dia-atual {
+  background-color: #990000;
+  color: white;
+  font-weight: bold;
+}
+
+.fim-de-semana {
+  color: #6d6d6d;
+}
+
+/* Estilos para o modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.modal-content {
+  background-color: rgb(255, 222, 200);
+  margin: 15% auto;
+  padding: 20px;
+  border: 10px solid #990000;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+  font-family: 'Gill Sans MT', sans-serif;
+  box-shadow: 10px 10px rgba(0, 0, 0, 0.1);
+   position: relative;
+}
+
+.close-modal {
+  color: rgb(119, 19, 19);
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  color: #990000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+   color: #381c64;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #923131;
+  border-radius: 4px;
+  box-sizing: border-box;
+   font-family: 'Gill Sans MT', sans-serif;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.botoes-modal {
+  text-align: right;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px
+}
+
+.botoes-modal button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: rgb(255, 210, 192);
+  background-color: #990000;
+    font-family: 'Gill Sans MT', sans-serif;
+}
+
+#eventos-do-dia {
+  margin-top: 15px;
+  padding: 15px;
+  border-top: 1px solid #923131;
+}
+
+#eventos-do-dia h3 {
+  margin-bottom: 10px;
+   color: #990000;
+}
+
+#eventos-do-dia ul {
+  padding-left: 20px;
+}
+
+#eventos-do-dia li {
+  margin-bottom: 8px;
+  list-style-type: disc;
+    color: #381c64;
+}
+
+#eventos-do-dia li span {
+  font-weight: bold;
+}
+
+.modal-content .btn-editar-evento {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: rgb(255, 210, 192);
+  background-color: #990000;
+  font-size: 0.8em;
+  font-family: 'Gill Sans MT', sans-serif;
+}
+
+.dia-com-evento {
+position: relative;
+}
+
+.dia-com-evento::after {
+content: '';
+position: absolute;
+bottom: 5px;
+left: 50%;
+transform: translateX(-50%);
+width: 6px;
+height: 6px;
+background-color: #990000;
+border-radius: 50%;
+}
